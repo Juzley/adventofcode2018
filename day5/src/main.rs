@@ -80,11 +80,8 @@ fn main() {
     let result = (b'a'..=b'z')
         .map(char::from)
         .map(|c: char| {
-            println!("Orig {}", chain.len());
             let new_chain = filter_type(chain.as_ref(), c);
-            println!("Filtered {} {}", c, new_chain.len());
             let final_chain = react(&new_chain);
-            println!("Final {}", final_chain.len());
             return final_chain.len();
         })
         .min()
